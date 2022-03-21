@@ -1,9 +1,7 @@
 import React from "react";
 import "./Navbar.css";
-
-const Navbar = ({ name }) => {
+const Navbar = () => {
   return (
-    <div>
       <section className="navbar-part">
         <nav className="navbar navbar-expand-lg navbar-light ">
           <div className="container-fluid">
@@ -40,17 +38,17 @@ const Navbar = ({ name }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link">Subscribe</a>
+                  <a className="nav-link" href="#">Subscribe</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link">Sign up</a>
+                  <a className="nav-link" href="#">Sign up</a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </section>
-    </div>
+
   );
 };
 
