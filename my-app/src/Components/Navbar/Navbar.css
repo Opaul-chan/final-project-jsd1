@@ -1,6 +1,9 @@
+.red-head {
+  color: red;
+}
 .nav-link {
   color: white;
 }
-body {
+.navbar-part {
   background-color: gray;
 }
