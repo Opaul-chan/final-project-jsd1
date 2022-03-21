@@ -1,9 +1,10 @@
+.navbar-brand h1 {
+  color: white;
+}
 .red-head {
   color: red;
 }
-.nav-link {
-  color: white;
-}
 .navbar-part {
-  background-color: gray;
+  background-color: #444444;
+  color: white;
 }

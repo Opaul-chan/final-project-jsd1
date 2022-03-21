@@ -28,20 +28,20 @@ const Navbar = () => {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">
-                    Add Your Activity
+                  <a className="nav-link" aria-current="page" href="#" style={{color: 'white'}}>
+                   Add Your Activity
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="activity-history.html">
+                  <a className="nav-link" href="activity-history.html" style={{color: 'white'}}>
                     Activity History
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Subscribe</a>
+                  <a className="nav-link" href="#" style={{color: 'white'}}>Subscribe</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Sign up</a>
+                  <a className="nav-link" href="#" style={{color: 'white'}}>Sign up</a>
                 </li>
               </ul>
             </div>
