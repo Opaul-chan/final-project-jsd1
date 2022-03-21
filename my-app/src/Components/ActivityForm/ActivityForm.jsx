@@ -1,7 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import "./ActivityForm.css";
 
-const ActivityForm = () => {
+const ActivityForm = (props) => {
+  const [activityName, setActivityName] = useState("");
+  const [activityDate, setActivityDate] = useState("");
+  const [activityDuration, setActivityDuration] = useState("");
+  const [activityDescription, setActivityDescription] = useState("");
+  const handleChange = (event) => {
+    props.setActivityType(event.target.value);
+  };
   return (
     <section className="form-part">
       <div className="container-fluid">
@@ -13,13 +21,14 @@ const ActivityForm = () => {
           <div className="col-12">
             <h3>Activity Name</h3>
             <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1"></span>
               <input
                 type="text"
                 className="form-control"
                 placeholder="running with my dog."
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                value={activityName}
+                onChange={(event) => setActivityName(event.target.value)}
               />
             </div>
           </div>
@@ -27,13 +36,14 @@ const ActivityForm = () => {
           <div className="col-12">
             <h3>Activity Date</h3>
             <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1"></span>
               <input
                 type="text"
                 className="form-control"
                 placeholder="dd/mm/yy"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                value={activityDate}
+                onChange={(event) => setActivityDate(event.target.value)}
               />
             </div>
           </div>
@@ -41,20 +51,24 @@ const ActivityForm = () => {
           <div className="col-12">
             <h3>Activity Type</h3>
             <div className="input-group mb-3">
-              <select className="form-select" id="inputGroupSelect02">
-                <option selected>running</option>
-                <option value="1">running</option>
-                <option value="2">swimming</option>
-                <option value="3">basketball</option>
-                <option value="1">bike</option>
-                <option value="2">weight</option>
-                <option value="3">ping pong</option>
-                <option value="1">boxing</option>
-                <option value="2">yoga</option>
-                <option value="3">football</option>
-                <option value="1">running</option>
-                <option value="2">golf</option>
-                <option value="3">other</option>
+              <select
+                className="form-select"
+                id="inputGroupSelect02"
+                value={props.activityType}
+                onChange={handleChange}
+              >
+                <option value="running">running</option>
+                <option value="swimming">swimming</option>
+                <option value="basketball">basketball</option>
+                <option value="bike">bike</option>
+                <option value="weight">weight</option>
+                <option value="ping pong">ping pong</option>
+                <option value="boxing">boxing</option>
+                <option value="yoga">yoga</option>
+                <option value="football">football</option>
+                <option value="running">running</option>
+                <option value="golf">golf</option>
+                <option value="other">other</option>
               </select>
               <label className="input-group-text" for="inputGroupSelect02">
                 Options
@@ -71,6 +85,8 @@ const ActivityForm = () => {
                 placeholder="60"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
+                value={activityDuration}
+                onChange={(event) => setActivityDuration(event.target.value)}
               />
               <span className="input-group-text" id="basic-addon2">
                 mins
@@ -86,6 +102,8 @@ const ActivityForm = () => {
                 className="form-control"
                 placeholder="Fun and Happy"
                 aria-label="With textarea"
+                value={activityDescription}
+                onChange={(event) => setActivityDescription(event.target.value)}
               ></textarea>
             </div>
           </div>
