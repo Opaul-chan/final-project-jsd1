@@ -9,7 +9,7 @@ const ActivityIcon = (props) => {
   return (
     <section className="banner-part">
       <div className="container-fluid-banner">
-        <h2>Add Your Activity</h2>
+        <h2 className="Add">Add Your Activity</h2>
         <div className="row">
           <div className="col-2">
             <img
