@@ -1,54 +1,76 @@
-import React from "react";
+// import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
+
 const Navbar = () => {
   return (
-      <section className="navbar-part">
-        <nav className="navbar navbar-expand-lg navbar-light ">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <h1>
-                <span className="red-head">Exer</span>Notion
-              </h1>
-            </a>
-
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse  justify-content-end"
-              id="navbarNav"
-            >
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#" style={{color: 'white'}}>
-                   Add Your Activity
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="activity-history.html" style={{color: 'white'}}>
-                    Activity History
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" style={{color: 'white'}}>Subscribe</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" style={{color: 'white'}}>Sign up</a>
-                </li>
-              </ul>
-            </div>
+    <section className="navbar-part">
+      <nav className="navbar navbar-expand-lg navbar-light ">
+        <div className="container-fluid">
+          <h1>
+            <span className="red-head">Exer</span>
+            <span>Notion</span>
+          </h1>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse  justify-content-end"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link"
+                  aria-current="page"
+                  style={{ color: "white" }}
+                >
+                  Add Your Activity
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/History"
+                  className="nav-link"
+                  style={{ color: "white" }}
+                >
+                  Activity History
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="#"
+                  className="nav-link"
+                  href="#"
+                  style={{ color: "white" }}
+                >
+                  Subscribe
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="#"
+                  className="nav-link"
+                  href="#"
+                  style={{ color: "white" }}
+                >
+                  Sign up
+                </Link>
+              </li>
+            </ul>
           </div>
-        </nav>
-      </section>
-
+        </div>
+      </nav>
+    </section>
   );
 };
 

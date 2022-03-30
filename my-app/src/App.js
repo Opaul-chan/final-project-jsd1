@@ -1,23 +1,17 @@
-import React, { useState } from "react";
-import ActivityIcon from "./Components/ActivityIcon/ActivityIcon.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar.jsx";
-import ActivityForm from "./Components/ActivityForm/ActivityForm.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
-function App() {
-  const [activityType, setActivityType] = useState("running");
-
+import Home from "./Page/Home";
+import History from "./Page/History";
+const App = () => {
+  // const [activityType, setActivityType] = useState("running");
   return (
-    <div className="App">
-      <Navbar />
-      <ActivityIcon setActivityType={setActivityType} />
-      <ActivityForm
-        activityType={activityType}
-        setActivityType={setActivityType}
-      />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/History" element={<History />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ActivityForm.css";
 
 const ActivityForm = (props) => {
@@ -7,9 +6,58 @@ const ActivityForm = (props) => {
   const [activityDate, setActivityDate] = useState("");
   const [activityDuration, setActivityDuration] = useState("");
   const [activityDescription, setActivityDescription] = useState("");
-  const handleChange = (event) => {
+  const [isNameInvalid, setIsNameInvalid] = useState(false);
+  const [isDurationInvalid, setIsDurationInvalid] = useState(false);
+  const [isDescriptionInvalid, setIsDescriptionInvalid] = useState(false);
+
+  const handleChangeActivityName = (event) => {
+    setActivityName(event.target.value);
+  };
+
+  const handleChangeActivityDate = (event) => {
+    setActivityDate(event.target.value);
+  };
+
+  const handleChangeActivityType = (event) => {
     props.setActivityType(event.target.value);
   };
+
+  const handleChangeActivityDuration = (event) => {
+    setActivityDuration(event.target.value);
+  };
+
+  const handleChangeActivityDescription = (event) => {
+    setActivityDescription(event.target.value);
+  };
+
+  useEffect(() => {
+    if (activityName.length > 3 && activityName !== "") {
+      setIsNameInvalid(true);
+    } else {
+      setIsNameInvalid(false);
+    }
+  }, [activityName]);
+
+  useEffect(() => {
+    if (activityDuration > 0) {
+      setIsDurationInvalid(true);
+    } else {
+      setIsDurationInvalid(false);
+    }
+  }, [activityDuration]);
+
+  useEffect(() => {
+    if (
+      activityDescription.length > 9 &&
+      activityDescription !== "" &&
+      activityDescription.length < 139
+    ) {
+      setIsDescriptionInvalid(true);
+    } else {
+      setIsDescriptionInvalid(false);
+    }
+  }, [activityDescription]);
+
   return (
     <section className="form-part">
       <div className="container-fluid">
@@ -27,8 +75,9 @@ const ActivityForm = (props) => {
                 placeholder="running with my dog."
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                isNameInvalid={isNameInvalid}
                 value={activityName}
-                onChange={(event) => setActivityName(event.target.value)}
+                onChange={handleChangeActivityName}
               />
             </div>
           </div>
@@ -43,7 +92,7 @@ const ActivityForm = (props) => {
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 value={activityDate}
-                onChange={(event) => setActivityDate(event.target.value)}
+                onChange={handleChangeActivityDate}
               />
             </div>
           </div>
@@ -55,7 +104,7 @@ const ActivityForm = (props) => {
                 className="form-select"
                 id="inputGroupSelect02"
                 value={props.activityType}
-                onChange={handleChange}
+                onChange={handleChangeActivityType}
               >
                 <option value="running">running</option>
                 <option value="swimming">swimming</option>
@@ -85,8 +134,9 @@ const ActivityForm = (props) => {
                 placeholder="60"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
+                isDurationInvalid={isDurationInvalid}
                 value={activityDuration}
-                onChange={(event) => setActivityDuration(event.target.value)}
+                onChange={handleChangeActivityDuration}
               />
               <span className="input-group-text" id="basic-addon2">
                 mins
@@ -102,8 +152,9 @@ const ActivityForm = (props) => {
                 className="form-control"
                 placeholder="Fun and Happy"
                 aria-label="With textarea"
+                isDescriptionInvalid={isDescriptionInvalid}
                 value={activityDescription}
-                onChange={(event) => setActivityDescription(event.target.value)}
+                onChange={handleChangeActivityDescription}
               ></textarea>
             </div>
           </div>
