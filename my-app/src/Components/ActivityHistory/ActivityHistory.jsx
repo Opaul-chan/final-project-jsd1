@@ -32,7 +32,7 @@ const ActivityHistory = () => {
               <div className="card-body-his">
                 <h5 className="card-title">Activity Date: 9/02/2021</h5>
                 <h5 className="card-title">
-                  Activity Name: Play football with Ronaldo.
+                  Activity Name: Play football with my friends.
                 </h5>
                 <h5 className="card-title">Activity Duration: 90 mins.</h5>
                 <h5 className="card-title">Activity Type: football</h5>
@@ -61,7 +61,7 @@ const ActivityHistory = () => {
               <img src="./bike.png" className="card-img-his" alt="..." />
               <div className="card-body-his">
                 <h5 className="card-title">Activity Date: 30/01/2021</h5>
-                <h5 className="card-title">Activity Name: Bike for dad</h5>
+                <h5 className="card-title">Activity Name: Bike on weekend</h5>
                 <h5 className="card-title">Activity Duration: 45mins</h5>
                 <h5 className="card-title">Activity Type: bike</h5>
                 <h5 className="card-title">Activity Description: feel good.</h5>
