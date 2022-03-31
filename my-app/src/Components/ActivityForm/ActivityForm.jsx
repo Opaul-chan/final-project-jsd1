@@ -31,7 +31,7 @@ const ActivityForm = (props) => {
   };
 
   useEffect(() => {
-    if (activityName.length > 3 && activityName !== "") {
+    if (activityName.length > 3) {
       setIsNameInvalid(true);
     } else {
       setIsNameInvalid(false);
