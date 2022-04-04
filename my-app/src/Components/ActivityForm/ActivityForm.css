@@ -2,3 +2,7 @@
   background-color: #444444;
   color: white;
 }
+.btn btn-secondary submit {
+  margin-bottom: 30px;
+  color: red;
+}

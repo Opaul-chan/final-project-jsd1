@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./ActivityDuration.css";
 const TimeInput = () => {
   const [value, setValue] = React.useState("0:00");

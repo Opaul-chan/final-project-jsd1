@@ -4,6 +4,7 @@ import "./ActivityIcon.css";
 const ActivityIcon = (props) => {
   const onClick = (type) => {
     props.setActivityType(type);
+    console.log(type);
   };
 
   return (

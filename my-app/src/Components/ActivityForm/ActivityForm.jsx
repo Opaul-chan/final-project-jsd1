@@ -6,20 +6,24 @@ const ActivityForm = (props) => {
   const [activityDate, setActivityDate] = useState("");
   const [activityDuration, setActivityDuration] = useState("");
   const [activityDescription, setActivityDescription] = useState("");
-  const [isNameInvalid, setIsNameInvalid] = useState(false);
-  const [isDurationInvalid, setIsDurationInvalid] = useState(false);
-  const [isDescriptionInvalid, setIsDescriptionInvalid] = useState(false);
+  const [isDateValid, setIsDateValid] = useState(false);
+  const [isNameValid, setIsNameValid] = useState(false);
+  const [isTypeValid, setIsTypeValid] = useState(false);
+  const [isDurationValid, setIsDurationValid] = useState(false);
+  const [isDescriptionValid, setIsDescriptionValid] = useState(false);
+  const [isSubmitValid, setIsSubmitValid] = useState(false);
 
   const handleChangeActivityName = (event) => {
-    setActivityName(event.target.value);
+    const newValue = event.target.value;
+    if (newValue.length > 10) {
+      return;
+    } else {
+      setActivityName(event.target.value);
+    }
   };
 
   const handleChangeActivityDate = (event) => {
     setActivityDate(event.target.value);
-  };
-
-  const handleChangeActivityType = (event) => {
-    props.setActivityType(event.target.value);
   };
 
   const handleChangeActivityDuration = (event) => {
@@ -30,34 +34,61 @@ const ActivityForm = (props) => {
     setActivityDescription(event.target.value);
   };
 
+  //validate activityDate
   useEffect(() => {
-    if (activityName.length > 3) {
-      setIsNameInvalid(true);
+    if (activityDate !== "") {
+      setIsDateValid(true);
     } else {
-      setIsNameInvalid(false);
+      setIsDateValid(false);
+    }
+  }, [activityDate]);
+  //validate activityName
+  useEffect(() => {
+    if (activityName.length >= 3 && activityName.length <= 10) {
+      setIsNameValid(true);
+    } else {
+      setIsNameValid(false);
     }
   }, [activityName]);
-
+  //validate activityType
   useEffect(() => {
-    if (activityDuration > 0) {
-      setIsDurationInvalid(true);
+    const validTypes = ["running", "ping-pong"];
+    const isTypeValid = validTypes.includes(props.activityType);
+    setIsTypeValid(isTypeValid);
+    console.log(isTypeValid);
+  }, [props.activityType]);
+  //validate activityDuration
+  useEffect(() => {
+    if (activityDuration > 0 && activityDuration.length > 0) {
+      setIsDurationValid(true);
     } else {
-      setIsDurationInvalid(false);
+      setIsDurationValid(false);
     }
   }, [activityDuration]);
-
+  //validate activityDescription
   useEffect(() => {
-    if (
-      activityDescription.length > 9 &&
-      activityDescription !== "" &&
-      activityDescription.length < 139
-    ) {
-      setIsDescriptionInvalid(true);
+    if (activityDescription.length > 9 && activityDescription.length < 120) {
+      setIsDescriptionValid(true);
     } else {
-      setIsDescriptionInvalid(false);
+      setIsDescriptionValid(false);
     }
   }, [activityDescription]);
+  // validate submit
+  const canSubmit =
+    isDateValid &&
+    isNameValid &&
+    isTypeValid &&
+    isDurationValid &&
+    isDescriptionValid;
 
+  const onClick = (type) => {
+    if (canSubmit) {
+      //fetch
+      alert("OK");
+    } else {
+      alert("Invalid value");
+    }
+  };
   return (
     <section className="form-part">
       <div className="container-fluid">
@@ -65,7 +96,6 @@ const ActivityForm = (props) => {
           <h2>Your Exercise Journal</h2>
         </div>
         <div className="row">
-          {/* <!--part Activity Name input type text--> */}
           <div className="col-12">
             <h3>Activity Name</h3>
             <div className="input-group mb-3">
@@ -75,22 +105,22 @@ const ActivityForm = (props) => {
                 placeholder="running with my dog."
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-                isNameInvalid={isNameInvalid}
+                isNameInvalid={isNameValid}
                 value={activityName}
                 onChange={handleChangeActivityName}
               />
             </div>
           </div>
-          {/* <!--part Activity Date input type text--> */}
           <div className="col-12">
             <h3>Activity Date</h3>
             <div className="input-group mb-3">
               <input
-                type="text"
+                type="date"
                 className="form-control"
-                placeholder="dd/mm/yy"
+                placeholder="dd/mm/yyyy"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                isDateInvalid={isDateValid}
                 value={activityDate}
                 onChange={handleChangeActivityDate}
               />
@@ -104,17 +134,19 @@ const ActivityForm = (props) => {
                 className="form-select"
                 id="inputGroupSelect02"
                 value={props.activityType}
-                onChange={handleChangeActivityType}
+
+                // onChange={handleChangeActivityType}
               >
                 <option value="running">running</option>
                 <option value="swimming">swimming</option>
                 <option value="basketball">basketball</option>
                 <option value="bike">bike</option>
-                <option value="weight">weight</option>
-                <option value="ping pong">ping pong</option>
+                <option value="dumbbell">dumbbell</option>
+                <option value="ping-pong">ping-pong</option>
                 <option value="boxing">boxing</option>
+                <option value="tennis">tennis</option>
                 <option value="yoga">yoga</option>
-                <option value="football">football</option>
+                <option value="soccer">soccer</option>
                 <option value="running">running</option>
                 <option value="golf">golf</option>
                 <option value="other">other</option>
@@ -124,7 +156,6 @@ const ActivityForm = (props) => {
               </label>
             </div>
           </div>
-          {/* <!--part Activity Duration input type number--> */}
           <div className="col-12">
             <h3>Activity Duration</h3>
             <div className="input-group mb-3">
@@ -134,7 +165,7 @@ const ActivityForm = (props) => {
                 placeholder="60"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
-                isDurationInvalid={isDurationInvalid}
+                isDurationInvalid={isDurationValid}
                 value={activityDuration}
                 onChange={handleChangeActivityDuration}
               />
@@ -143,7 +174,6 @@ const ActivityForm = (props) => {
               </span>
             </div>
           </div>
-          {/* <!--part Describe this journal input type text--> */}
           <div className="col-12">
             <h3>Describe this journal</h3>
             <div className="input-group">
@@ -152,7 +182,7 @@ const ActivityForm = (props) => {
                 className="form-control"
                 placeholder="Fun and Happy"
                 aria-label="With textarea"
-                isDescriptionInvalid={isDescriptionInvalid}
+                isDescriptionInvalid={isDescriptionValid}
                 value={activityDescription}
                 onChange={handleChangeActivityDescription}
               ></textarea>
@@ -162,8 +192,10 @@ const ActivityForm = (props) => {
         <div class="col-12 mt-5">
           <button
             type="submit"
-            class="btn btn-secondary"
+            class="btn btn-secondary submit"
             style={{ marginBottom: "30px" }}
+            isSubmitValid={isSubmitValid}
+            onClick={() => onClick()}
           >
             Add activity
           </button>
