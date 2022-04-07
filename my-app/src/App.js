@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Page/Home";
 import History from "./Page/History";
+
 const App = () => {
   // const [activityType, setActivityType] = useState("running");
   return (

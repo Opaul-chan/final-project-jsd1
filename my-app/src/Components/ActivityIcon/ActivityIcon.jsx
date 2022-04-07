@@ -62,7 +62,7 @@ const ActivityIcon = (props) => {
         <div className="row">
           <div className="col-2">
             <img
-              src="boxing-gloves.png"
+              src="boxing.png"
               alt="boxing icon"
               onClick={() => onClick("boxing")}
               value="boxing"
@@ -88,8 +88,8 @@ const ActivityIcon = (props) => {
             <img
               src="soccer-ball.png"
               alt="soccer-ball icon"
-              onClick={() => onClick("soccer")}
-              value="soccer"
+              onClick={() => onClick("football")}
+              value="football"
             />
           </div>
           <div className="col-2">

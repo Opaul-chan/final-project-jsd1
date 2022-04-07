@@ -31,10 +31,10 @@ const Navbar = () => {
                 <Link
                   to="/"
                   className="nav-link"
-                  aria-current="page"
+                  href="#"
                   style={{ color: "white" }}
                 >
-                  Add Your Activity
+                  Add Activity
                 </Link>
               </li>
               <li className="nav-item">
@@ -46,17 +46,8 @@ const Navbar = () => {
                   Activity History
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  to="#"
-                  className="nav-link"
-                  href="#"
-                  style={{ color: "white" }}
-                >
-                  Subscribe
-                </Link>
-              </li>
-              <li className="nav-item">
+
+              {/* <li className="nav-item">
                 <Link
                   to="#"
                   className="nav-link"
@@ -65,7 +56,7 @@ const Navbar = () => {
                 >
                   Sign up
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
