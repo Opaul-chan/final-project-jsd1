@@ -6,6 +6,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 // import res from "express/lib/response";
 
 // import Footer from "../Components/Footer/Footer";
@@ -13,16 +14,26 @@ import axios from "axios";
 // import { Button } from "react-bootstrap";
 const baseURL = "http://localhost:4000/activities";
 
+// const handleDelete = () => {
+//   const navigate = useNavigate();
+//   axios.delete(`${baseURL}/:id`).then((response) => {
+//     alert("Post deleted!!!");
+//     navigate({
+//       pathname: "/History",
+//     });
+//   });
+// };
 const ActivityHistory = () => {
   //use effect
   const [posts, setPost] = useState(null);
   useEffect(() => {
-    axios.get(baseURL).then((res) => {
-      setPost(res.data);
-      console.log(res.data);
+    axios.get(baseURL).then((response) => {
+      setPost(response.data);
     });
   }, []);
+
   if (!posts) return null;
+
   return (
     <section className="banner-part">
       <div className="container-fluid">
@@ -53,7 +64,12 @@ const ActivityHistory = () => {
                     <div className="dropdown-button">
                       <DropdownButton variant="secondary" title="...">
                         <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                        <Dropdown.Item
+                          href="#/action-2"
+                          // onclick={() => handleDelete()}
+                        >
+                          Delete
+                        </Dropdown.Item>
                       </DropdownButton>
                     </div>
                   </div>

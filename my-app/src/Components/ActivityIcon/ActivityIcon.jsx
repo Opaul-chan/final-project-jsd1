@@ -86,7 +86,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="soccer-ball.png"
+              src="football.png"
               alt="soccer-ball icon"
               onClick={() => onClick("football")}
               value="football"
