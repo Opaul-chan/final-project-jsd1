@@ -6,7 +6,6 @@ import "../Components/ActivityHistory/ActivityHistory.css";
 const History = () => {
   return (
     <div>
-      <Navbar />
       <ActivityHistory />
       {/* <Footer /> */}
     </div>

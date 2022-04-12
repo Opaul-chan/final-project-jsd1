@@ -1,7 +1,21 @@
+* {
+  font-family: "Anek Tamil", sans-serif;
+}
+html {
+  background-color: #444444;
+
+  /* max-width: 1200px;
+  margin: 0 auto; */
+}
+/* .container-all {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
 /* .App {
   text-align: left;
-}
-
+} */
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;

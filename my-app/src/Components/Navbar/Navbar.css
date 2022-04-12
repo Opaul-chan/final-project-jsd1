@@ -1,10 +1,37 @@
 .navbar-brand h1 {
   color: white;
 }
+
 .red-head {
   color: red;
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Anek Tamil", sans-serif;
+}
+.white-head {
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Anek Tamil", sans-serif;
 }
 .navbar-part {
-  background-color: #333333;
+  background-color: #313131;
   color: white;
+}
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container-fluid-his {
+  background-color: #313131;
+}
+
+#nav-color {
+  background-color: #313131;
+}
+a.nav-link {
+  font-size: 18x;
+  font-weight: 500;
+}
+a.nav-item {
+  font-size: 20px;
 }

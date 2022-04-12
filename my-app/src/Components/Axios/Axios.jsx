@@ -14,7 +14,7 @@ export default function App() {
   // if (loading || !data) return "Loading...";
   // if (error) return "Error!!!";
   const [post, setPost] = useState(null);
-  const [error, setError] = useState * null;
+  const [error, setError] = useState(null);
   useEffect(() => {
     // search activity by activityType
     async function getPost() {

@@ -8,4 +8,13 @@ img:hover {
 .container-fluid-banner {
   background-color: #444444;
   color: white;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.banner-part-icon {
+  background-color: #444444;
+}
+h2.Add {
+  font-size: 28px;
+  padding: 28px;
 }

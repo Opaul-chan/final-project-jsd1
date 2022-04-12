@@ -6,23 +6,25 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
-// import res from "express/lib/response";
-
-// import Footer from "../Components/Footer/Footer";
-// import { Link } from "react-router-dom";
-// import { Button } from "react-bootstrap";
+// import { Navigate, useNavigate } from "react-router-dom";
 const baseURL = "http://localhost:4000/activities";
 
-// const handleDelete = () => {
+// const HandleEdit = (id) => {
 //   const navigate = useNavigate();
-//   axios.delete(`${baseURL}/:id`).then((response) => {
-//     alert("Post deleted!!!");
+//   axios.patch(`${baseURL}/${id}`).then(() => {
 //     navigate({
-//       pathname: "/History",
+//       pathname: "/UpdateActivity",
 //     });
 //   });
 // };
+const handleDelete = (id) => {
+  console.log(id);
+  axios.delete(`${baseURL}/${id}`).then(() => {
+    alert("Post deleted!!!");
+    window.location.reload(false);
+  });
+};
+
 const ActivityHistory = () => {
   //use effect
   const [posts, setPost] = useState(null);
@@ -33,11 +35,10 @@ const ActivityHistory = () => {
   }, []);
 
   if (!posts) return null;
-
   return (
-    <section className="banner-part">
+    <section className="banner-part-history">
       <div className="container-fluid">
-        <h2 style={{ color: "white" }}>Activity History</h2>
+        <h2 className="history">Activity History</h2>
         {/* <a href="#" style={{ textAlign: "right" }}>
           <h5>All Record</h5>
         </a> */}
@@ -53,8 +54,8 @@ const ActivityHistory = () => {
         <div className="row row-cols-1 row-cols-md-2 g-4">
           {posts.map((post) => {
             return (
-              <div className="col">
-                <div className="card-his img-fluid rounded-start">
+              <div className="col" key={post._id}>
+                <div className="card-his img-fluid">
                   <div className="icon-dropdown">
                     <img
                       src={"./" + post.activityType + ".png"}
@@ -63,10 +64,15 @@ const ActivityHistory = () => {
                     />
                     <div className="dropdown-button">
                       <DropdownButton variant="secondary" title="...">
-                        <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
+                        <Dropdown.Item
+                          href="#/action-1"
+                          // onClick={() => HandleEdit(post._id)}
+                        >
+                          Edit
+                        </Dropdown.Item>
                         <Dropdown.Item
                           href="#/action-2"
-                          // onclick={() => handleDelete()}
+                          onClick={() => handleDelete(post._id)}
                         >
                           Delete
                         </Dropdown.Item>
@@ -78,16 +84,16 @@ const ActivityHistory = () => {
                       Activity Date: {post.activityDate}
                     </h5>
                     <h5 className="card-title-his">
-                      Activity Name: {post.activityName}.
+                      Activity Name: {post.activityName}
                     </h5>
                     <h5 className="card-title-his">
                       Activity Duration: {post.activityDuration} mins.
                     </h5>
                     <h5 className="card-title-his">
-                      Activity Type:{post.activityType}.
+                      Activity Type:{post.activityType}
                     </h5>
                     <h5 className="card-title-his">
-                      Activity Description: {post.activityDescription}.
+                      Activity Description: {post.activityDescription}
                     </h5>
                   </div>
                 </div>

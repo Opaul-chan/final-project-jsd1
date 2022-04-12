@@ -2,7 +2,10 @@
   background-color: #444444;
   color: white;
 }
-.btn btn-secondary submit {
-  margin-bottom: 30px;
-  color: red;
+
+.form-control {
+  font-size: 10px;
+}
+button.btn.btn-secondary.submit {
+  margin-top: 30px;
 }

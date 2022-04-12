@@ -3,13 +3,23 @@
 body {
   font-family: "Roboto", sans-serif;
 }
-.banner-part {
+.banner-part-history {
   background-color: #444444;
 }
-/* img {
-  width: 100%;
-  padding: 30px;
-} */
+.container-fluid {
+  background-color: #444444;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h2.history {
+  font-size: 28px;
+  color: white;
+  padding: 28px;
+}
+div.col {
+  border-radius: 50px;
+}
+
 div.icon-dropdown {
   display: flex;
   justify-content: space-between;
@@ -19,8 +29,9 @@ div.icon-dropdown {
   margin-top: 20px;
 }
 .card-his {
-  background-color: gray;
+  background-color: #f5eded;
   flex-direction: row;
+  border-radius: 20px;
 }
 img.card-img-his {
   width: 30%;
@@ -30,9 +41,7 @@ img.card-img-his {
 .card-body-his {
   padding: 20px;
 }
-h2 {
-  padding: 32px;
-}
+
 h5.card-title-his {
   color: black;
   font-size: 18px;

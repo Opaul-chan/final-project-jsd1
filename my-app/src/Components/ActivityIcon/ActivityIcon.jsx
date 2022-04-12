@@ -4,11 +4,10 @@ import "./ActivityIcon.css";
 const ActivityIcon = (props) => {
   const onClick = (type) => {
     props.setActivityType(type);
-    console.log(type);
   };
 
   return (
-    <section className="banner-part">
+    <section className="banner-part-icon">
       <div className="container-fluid-banner">
         <h2 className="Add">Add Your Activity</h2>
         <div className="row">

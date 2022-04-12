@@ -11,7 +11,7 @@ const ActivityForm = (props) => {
   const [activityDate, setActivityDate] = useState("");
   const [activityDuration, setActivityDuration] = useState("");
   const [activityDescription, setActivityDescription] = useState("");
-  // const [activityType, setActivityType] = useState("");
+  const [activityType, setActivityType] = useState("");
   const [isDateValid, setIsDateValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isTypeValid, setIsTypeValid] = useState(false);
@@ -37,9 +37,9 @@ const ActivityForm = (props) => {
   const handleChangeActivityDuration = (event) => {
     setActivityDuration(event.target.value);
   };
-  // const handleChangeActivityType = (event) => {
-  //   setActivityType(event.target.value);
-  // };
+  const handleChangeActivityType = (event) => {
+    props.setActivityType(event.target.value);
+  };
   const handleChangeActivityDescription = (event) => {
     setActivityDescription(event.target.value);
   };
@@ -131,6 +131,7 @@ const ActivityForm = (props) => {
   };
 
   return (
+    // style={{ Height: "100%" }}
     <section className="form-part">
       <div className="container-fluid">
         <div className="your-exercise">
@@ -138,12 +139,12 @@ const ActivityForm = (props) => {
         </div>
         <div className="row">
           <div className="col-12">
-            <h3>Activity Name</h3>
+            <h5>Activity Name</h5>
             <div className="input-group mb-3">
               <input
                 type="text"
                 className="form-control"
-                placeholder="running with my dog."
+                placeholder="running with my dog.(max 40 character)"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 isNameValid={isNameValid}
@@ -153,7 +154,7 @@ const ActivityForm = (props) => {
             </div>
           </div>
           <div className="col-12">
-            <h3>Activity Date</h3>
+            <h5>Activity Date</h5>
             <div className="input-group mb-3">
               <input
                 type="date"
@@ -169,13 +170,13 @@ const ActivityForm = (props) => {
           </div>
           {/* <!--part Activity Type input type select--> */}
           <div className="col-12">
-            <h3>Activity Type</h3>
+            <h5>Activity Type</h5>
             <div className="input-group mb-3">
               <select
                 className="form-select"
                 id="inputGroupSelect02"
                 value={props.activityType}
-                // onChange={handleChangeActivityType}
+                onChange={handleChangeActivityType}
               >
                 <option value="swimming">swimming</option>
                 <option value="basketball">basketball</option>
@@ -196,7 +197,7 @@ const ActivityForm = (props) => {
             </div>
           </div>
           <div className="col-12">
-            <h3>Activity Duration</h3>
+            <h5>Activity Duration</h5>
             <div className="input-group mb-3">
               <input
                 type="number"
@@ -214,12 +215,12 @@ const ActivityForm = (props) => {
             </div>
           </div>
           <div className="col-12">
-            <h3>Describe this journal</h3>
+            <h5>Describe this journal</h5>
             <div className="input-group">
               <span className="input-group-text">textarea</span>
               <textarea
                 className="form-control"
-                placeholder="Fun and Happy"
+                placeholder="Fun and Happy.(max 120 character)"
                 aria-label="With textarea"
                 isDescriptionValid={isDescriptionValid}
                 value={activityDescription}
@@ -228,11 +229,10 @@ const ActivityForm = (props) => {
             </div>
           </div>
         </div>
-        <div class="col-12 mt-5">
+        <div class="col-12">
           <button
             type="submit"
             class="btn btn-secondary submit"
-            style={{ marginBottom: "30px" }}
             isSubmitValid={isSubmitValid}
             onClick={() => handleSubmit()}
           >
