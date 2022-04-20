@@ -6,7 +6,8 @@ import ActivityForm from "../Components/ActivityForm/ActivityForm";
 // import Footer from "../Components/Footer/Footer";
 
 const Home = () => {
-  const [activityType, setActivityType] = useState("running");
+  //  const [activityType, setActivityType] = useState("running");
+  const [activityType, setActivityType] = useState("");
   return (
     <div className="home-part">
       <ActivityIcon setActivityType={setActivityType} />
@@ -14,7 +15,6 @@ const Home = () => {
         activityType={activityType}
         setActivityType={setActivityType}
       />
-      {/* <Footer /> */}
     </div>
   );
 };

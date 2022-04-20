@@ -1,13 +1,12 @@
-// import Navbar from "../Components/Navbar/Navbar";
-// import UpdateActivity from "../Components/UpdateActivity/UpdateActivity";
-// const Update = () => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <UpdateActivity />
-//       {/* <Footer /> */}
-//     </div>
-//   );
-// };
+import React, { useState } from "react";
+import UpdateActivity from "../Components/UpdateActivity/UpdateActivity";
 
-// export default Update;
+const Update = () => {
+  return (
+    <div className="home-part">
+      <UpdateActivity />
+    </div>
+  );
+};
+
+export default Update;

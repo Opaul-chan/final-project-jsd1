@@ -2,11 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Page/Home";
 import History from "./Page/History";
-// import Update from "./Page/Update";
 import Navbar from "./Components/Navbar/Navbar";
+// import Update from "./Page/Update";
 
 const App = () => {
-  // const [activityType, setActivityType] = useState("running");
   return (
     <BrowserRouter>
       <Navbar />
@@ -15,7 +14,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/History" element={<History />} />
-            {/* <Route path="/Update" element={<Update />} /> */}
+            {/* <Route path="/Update/:id" element={<Update />} /> */}
           </Routes>
         </div>
       </div>

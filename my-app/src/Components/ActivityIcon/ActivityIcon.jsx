@@ -13,21 +13,21 @@ const ActivityIcon = (props) => {
         <div className="row">
           <div className="col-2">
             <img
-              src="running.png"
+              src="running.svg"
               alt="running icon"
               onClick={() => onClick("running")}
             />
           </div>
           <div className="col-2">
             <img
-              src="swimming.png"
+              src="swimming.svg"
               alt="swimming icon"
               onClick={() => onClick("swimming")}
             />
           </div>
           <div className="col-2">
             <img
-              src="basketball.png"
+              src="basketball.svg"
               alt="basketball icon"
               onClick={() => onClick("basketball")}
               value="basketball"
@@ -35,7 +35,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="bike.png"
+              src="bike.svg"
               alt="bike icon"
               onClick={() => onClick("bike")}
               value="bike"
@@ -43,7 +43,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="dumbbell.png"
+              src="dumbbell.svg"
               alt="dumbbell icon"
               onClick={() => onClick("dumbbell")}
               value="dumbbell"
@@ -51,7 +51,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="ping-pong.png"
+              src="ping-pong.svg"
               alt="ping-pong icon"
               onClick={() => onClick("ping-pong")}
               value="ping-pong"
@@ -61,7 +61,7 @@ const ActivityIcon = (props) => {
         <div className="row">
           <div className="col-2">
             <img
-              src="boxing.png"
+              src="boxing.svg"
               alt="boxing icon"
               onClick={() => onClick("boxing")}
               value="boxing"
@@ -69,7 +69,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="tennis.png"
+              src="tennis.svg"
               alt="tennis icon"
               onClick={() => onClick("tennis")}
               value="tennis"
@@ -77,7 +77,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="yoga.png"
+              src="yoga.svg"
               alt="yoga icon"
               onClick={() => onClick("yoga")}
               value="yoga"
@@ -85,7 +85,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="football.png"
+              src="football.svg"
               alt="soccer-ball icon"
               onClick={() => onClick("football")}
               value="football"
@@ -93,7 +93,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="golf.png"
+              src="golf.svg"
               alt="golf icon"
               onClick={() => onClick("golf")}
               value="golf"
@@ -101,7 +101,7 @@ const ActivityIcon = (props) => {
           </div>
           <div className="col-2">
             <img
-              src="other.png"
+              src="other.svg"
               alt="other icon"
               onClick={() => onClick("other")}
             />

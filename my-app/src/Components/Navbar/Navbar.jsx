@@ -42,17 +42,6 @@ const Navbar = () => {
                     Activity History
                   </Link>
                 </li>
-
-                {/* <li className="nav-item">
-                <Link
-                  to="#"
-                  className="nav-link"
-                  href="#"
-                  style={{ color: "white" }}
-                >
-                  Sign up
-                </Link>
-              </li> */}
               </ul>
             </div>
           </div>

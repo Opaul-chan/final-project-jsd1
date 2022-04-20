@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import "./ActivityForm.css";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import { use } from "express/lib/router";
 // import { response } from "express";
 //axios instance
+// faCheckCircle
 
 const ActivityForm = (props) => {
   const [activityName, setActivityName] = useState("");
   const [activityDate, setActivityDate] = useState("");
   const [activityDuration, setActivityDuration] = useState("");
   const [activityDescription, setActivityDescription] = useState("");
-  const [activityType, setActivityType] = useState("");
+  // const [activityType, setActivityType] = useState("");
   const [isDateValid, setIsDateValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isTypeValid, setIsTypeValid] = useState(false);
@@ -20,6 +26,13 @@ const ActivityForm = (props) => {
   const [isSubmitValid, setIsSubmitValid] = useState(false);
   const [posts, setPost] = useState(null);
   const [error, setError] = useState(null);
+  // const [errorMessage, setErrorMessage] = useState("");
+  const [errorActivityName, setErrorMessageActivityName] = useState("");
+  const [errorActivityDate, setErrorMessageActivityDate] = useState("");
+  const [errorActivityType, setErrorMessageActivityType] = useState("");
+  const [errorActivityDuration, setErrorMessageActivityDuration] = useState("");
+  const [errorActivityDescription, setErrorMessageActivityDescription] =
+    useState("");
   const navigate = useNavigate();
   const handleChangeActivityName = (event) => {
     const newValue = event.target.value;
@@ -52,14 +65,16 @@ const ActivityForm = (props) => {
       setIsDateValid(false);
     }
   }, [activityDate]);
+
   //validate activityName
   useEffect(() => {
-    if (activityName.length >= 0 && activityName.length <= 40) {
+    if (activityName.length > 0 && activityName.length <= 40) {
       setIsNameValid(true);
     } else {
       setIsNameValid(false);
     }
   }, [activityName]);
+
   //validate activityType
   useEffect(() => {
     const validTypes = [
@@ -78,7 +93,6 @@ const ActivityForm = (props) => {
     ];
     const isTypeValid = validTypes.includes(props.activityType);
     setIsTypeValid(isTypeValid);
-    console.log(isTypeValid);
   }, [props.activityType]);
   //validate activityDuration
   useEffect(() => {
@@ -88,6 +102,7 @@ const ActivityForm = (props) => {
       setIsDurationValid(false);
     }
   }, [activityDuration]);
+
   //validate activityDescription
   useEffect(() => {
     if (activityDescription.length > 0 && activityDescription.length < 120) {
@@ -114,32 +129,58 @@ const ActivityForm = (props) => {
         activityType: props.activityType,
         activityDescription: activityDescription,
       };
-      const client = axios.create({
-        baseURL: "http://localhost:4000",
-      });
-      client.post("/activities", activity).then((response) => {
-        navigate({
-          pathname: "/History",
+      toast.success("Deleted Activity Success");
+      setTimeout(() => {
+        const client = axios.create({
+          baseURL: "http://localhost:4000",
         });
-        setPost(response.data).catch((error) => {
-          setError(error);
+        client.post("/activities", activity).then((response) => {
+          navigate({
+            pathname: "/History",
+          });
+          // setPost(response.data);
+          setPost(response.data).catch((error) => {
+            setError(error);
+          });
         });
-      });
+      }, 4000);
     } else {
-      alert("Invalid value");
+      toast.error("Invalid Value.Activity can't be added");
+    }
+    const message = "invalid value";
+    if (!isNameValid) {
+      setErrorMessageActivityName(message);
+    }
+    if (!isTypeValid) {
+      setErrorMessageActivityType(message);
+    }
+    if (!isDurationValid) {
+      setErrorMessageActivityDuration(message);
+    }
+    if (!isDescriptionValid) {
+      setErrorMessageActivityDate(message);
+    }
+    if (!isDescriptionValid) {
+      setErrorMessageActivityDescription(message);
     }
   };
 
   return (
-    // style={{ Height: "100%" }}
     <section className="form-part">
       <div className="container-fluid">
         <div className="your-exercise">
           <h2>Your Exercise Journal</h2>
         </div>
         <div className="row">
-          <div className="col-12">
+          <div className="col-8">
             <h5>Activity Name</h5>
+            <span className="errorMessage">
+              {errorActivityName}
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="form-control-i"
+              />
+            </span>
             <div className="input-group mb-3">
               <input
                 type="text"
@@ -147,14 +188,21 @@ const ActivityForm = (props) => {
                 placeholder="running with my dog.(max 40 character)"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-                isNameValid={isNameValid}
                 value={activityName}
                 onChange={handleChangeActivityName}
               />
             </div>
           </div>
-          <div className="col-12">
+
+          <div className="col-8">
             <h5>Activity Date</h5>
+            <span className="errorMessage">
+              {errorActivityDate}
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="form-control-i"
+              />
+            </span>
             <div className="input-group mb-3">
               <input
                 type="date"
@@ -162,15 +210,21 @@ const ActivityForm = (props) => {
                 placeholder="dd/mm/yyyy"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-                isDateValid={isDateValid}
                 value={activityDate}
                 onChange={handleChangeActivityDate}
               />
             </div>
           </div>
           {/* <!--part Activity Type input type select--> */}
-          <div className="col-12">
+          <div className="col-8">
             <h5>Activity Type</h5>
+            <span className="errorMessage">
+              {errorActivityType}
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="form-control-i"
+              />
+            </span>
             <div className="input-group mb-3">
               <select
                 className="form-select"
@@ -191,13 +245,18 @@ const ActivityForm = (props) => {
                 <option value="golf">golf</option>
                 <option value="other">other</option>
               </select>
-              <label className="input-group-text" for="inputGroupSelect02">
-                Options
-              </label>
+              <label className="input-group-text">Options</label>
             </div>
           </div>
-          <div className="col-12">
+          <div className="col-8">
             <h5>Activity Duration</h5>
+            <span className="errorMessage">
+              {errorActivityDuration}
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="form-control-i"
+              />
+            </span>
             <div className="input-group mb-3">
               <input
                 type="number"
@@ -205,7 +264,6 @@ const ActivityForm = (props) => {
                 placeholder="60"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
-                isDurationValid={isDurationValid}
                 value={activityDuration}
                 onChange={handleChangeActivityDuration}
               />
@@ -214,30 +272,43 @@ const ActivityForm = (props) => {
               </span>
             </div>
           </div>
-          <div className="col-12">
+          <div className="col-8">
             <h5>Describe this journal</h5>
+            <span className="errorMessage">
+              {errorActivityDescription}
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="form-control-i"
+              />
+            </span>
             <div className="input-group">
               <span className="input-group-text">textarea</span>
               <textarea
                 className="form-control"
                 placeholder="Fun and Happy.(max 120 character)"
                 aria-label="With textarea"
-                isDescriptionValid={isDescriptionValid}
                 value={activityDescription}
                 onChange={handleChangeActivityDescription}
               ></textarea>
             </div>
           </div>
         </div>
-        <div class="col-12">
+        <div className="col-12">
           <button
             type="submit"
-            class="btn btn-secondary submit"
-            isSubmitValid={isSubmitValid}
+            className="btn btn-secondary submit"
             onClick={() => handleSubmit()}
           >
+            {/* isSubmitValid={isSubmitValid} เป็น disabled={isSubmitValid} */}
             Add activity
           </button>
+          <ToastContainer
+            toastStyle={{
+              backgroundColor: "black",
+              fontWeight: "800px",
+              color: "white",
+            }}
+          />
         </div>
       </div>
     </section>

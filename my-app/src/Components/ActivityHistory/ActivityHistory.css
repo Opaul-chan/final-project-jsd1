@@ -24,14 +24,12 @@ div.icon-dropdown {
   display: flex;
   justify-content: space-between;
 }
-.dropdown-button {
-  margin-right: 20px;
-  margin-top: 20px;
-}
+
 .card-his {
   background-color: #f5eded;
   flex-direction: row;
-  border-radius: 20px;
+  border-radius: 24px;
+  margin-right: 10px;
 }
 img.card-img-his {
   width: 30%;
@@ -44,20 +42,127 @@ img.card-img-his {
 
 h5.card-title-his {
   color: black;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 800;
   text-decoration: none;
 }
 .your-exercise {
   padding: 32px;
 }
-@media (max-width: 950px) {
+.container-fluid-banner {
+  display: none;
+}
+.form-control-icon {
+  height: 25px;
+  color: #e74c3c;
+  padding-bottom: 20px;
+}
+/* .form-control-icon-pen {
+  padding-left: 300px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  color: cornflowerblue;
+  height: 25px;
+} */
+@media (max-width: 450px) {
   .container-fluid-banner {
     display: none;
   }
+  .form-control-icon {
+    height: 15px;
+    color: #e74c3c;
+    padding-right: 10px;
+  }
+  .form-control-icon-pen {
+    padding-left: 50px;
+    padding-right: 10px;
+    color: cornflowerblue;
+    height: 15px;
+  }
 }
-
-@media (min-width: 951px) {
+/* @media (max-width: 800px) {
+  .container-fluid-banner {
+    display: none;
+  }
+  .form-control-icon {
+    height: 15px;
+    color: #e74c3c;
+  }
+  .form-control-icon-pen {
+    padding-left: 200px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: cornflowerblue;
+    height: 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .container-fluid-banner {
+    display: none;
+  }
+  .form-control-icon {
+    height: 15px;
+    color: #e74c3c;
+    padding-bottom: 20px;
+    padding-right: 10px;
+  }
+  .form-control-icon-pen {
+    padding-left: 100px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: cornflowerblue;
+    height: 15px;
+  }
+}
+@media (max-width: 1200px) {
+  .container-fluid-banner {
+    display: none;
+  }
+  .form-control-icon {
+    height: 25px;
+    color: #e74c3c;
+    padding-bottom: 20px;
+  }
+  .form-control-icon-pen {
+    padding-left: 100px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: cornflowerblue;
+    height: 25px;
+  }
+}
+@media (max-width: 1300px) {
   .your-exercise {
     display: none;
   }
-}
+  .form-control-icon-delete {
+    height: 25px;
+    color: #e74c3c;
+    padding-bottom: 30px;
+  }
+  .form-control-icon-pen {
+    padding-left: 250px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    color: cornflowerblue;
+    height: 25px;
+  }
+} */
+/* @media (max-width: 1500px) {
+  .your-exercise {
+    display: none;
+  }
+  .form-control-icon {
+    height: 25px;
+    color: #e74c3c;
+    padding-bottom: 30px;
+  }
+  .form-control-icon-pen {
+    padding-right: 10px;
+    padding-left: 250px;
+    padding-bottom: 30px;
+    color: cornflowerblue;
+    height: 25px;
+  }
+} */
