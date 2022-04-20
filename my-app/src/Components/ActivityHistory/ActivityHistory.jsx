@@ -57,7 +57,6 @@ const ActivityHistory = () => {
                     className="card-img-his"
                     alt="..."
                   />
-
                   <FontAwesomeIcon
                     icon={faPen}
                     className="form-control-icon-pen"

@@ -4,12 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
-import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
-
 import { useNavigate, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+
 const UpdateActivity = (props) => {
   const [activityName, setActivityName] = useState("");
   const [activityDate, setActivityDate] = useState("");
@@ -21,7 +19,7 @@ const UpdateActivity = (props) => {
   const [isTypeValid, setIsTypeValid] = useState(true);
   const [isDurationValid, setIsDurationValid] = useState(true);
   const [isDescriptionValid, setIsDescriptionValid] = useState(true);
-  //const [isSubmitValid, setIsSubmitValid] = useState(true);
+
   useState("");
   const params = useParams();
   const navigate = useNavigate();
@@ -86,10 +84,9 @@ const UpdateActivity = (props) => {
     const isTypeValid = validTypes.includes(activityType);
     setIsTypeValid(isTypeValid);
   }, [activityType]);
+
   //validate activityDuration
   useEffect(() => {
-    console.log();
-
     if (activityDuration > 0) {
       setIsDurationValid(true);
     } else {
@@ -135,60 +132,16 @@ const UpdateActivity = (props) => {
     axios
       .get(`http://localhost:4000/activities/${params.id}`)
       .then((res) => {
-        console.log(res);
         setActivityName(res.data.activityName);
         setActivityDate(cutDate(res.data.activityDate));
         setActivityDuration(res.data.activityDuration);
         setActivityDescription(res.data.activityDescription);
         setActivityType(res.data.activityType);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   }, [params.id]);
-
-  //   const handleSubmit = () => {
-  //     if (canSubmit) {
-  //       let activity = {
-  //         activityDate: activityDate,
-  //         activityName: activityName,
-  //         activityDuration: activityDuration,
-  //         activityType: props.activityType,
-  //         activityDescription: activityDescription,
-  //       };
-  //       toast.success("Updated Activity Success");
-  //       setTimeout(() => {
-  //         const client = axios.create({
-  //           baseURL: "http://localhost:4000",
-  //         });
-  //         client.post("/activities", activity).then((response) => {
-  //           navigate({
-  //             pathname: "/History",
-  //           });
-  //           // setPost(response.data);
-  //           setPost(response.data).catch((error) => {
-  //             setError(error);
-  //           });
-  //         });
-  //       }, 5000);
-  //     }
-  //     const message = "invalid value";
-  //     if (!isNameValid) {
-  //       setErrorMessageActivityName(message);
-  //     }
-  //     if (!isTypeValid) {
-  //       setErrorMessageActivityType(message);
-  //     }
-  //     if (!isDurationValid) {
-  //       setErrorMessageActivityDuration(message);
-  //     }
-  //     if (!isDescriptionValid) {
-  //       setErrorMessageActivityDate(message);
-  //     }
-  //     if (!isDescriptionValid) {
-  //       setErrorMessageActivityDescription(message);
-  //     }
-  //   };
 
   const onSubmit = (e) => {
     toast.success("Updated Activity Success");
@@ -210,15 +163,9 @@ const UpdateActivity = (props) => {
         />
         <div className="container-fluid">
           <h2 className="history">Update Activity</h2>
-
           <div className="row row-cols-1 row-cols-md-2 g-4">
             <div className="col">
               <div className="card-his img-fluid">
-                {/* <img
-                  src={"./" + activityType + ".svg"}
-                  className="card-img-his"
-                  alt="icon"
-                /> */}
                 <div className="card-body-his">
                   <h5 className="card-title-his">Activity Date:</h5>
                   <div className="col-8">
@@ -304,11 +251,7 @@ const UpdateActivity = (props) => {
                       ></textarea>
                     </div>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-secondary submit"
-                    // onClick={() => handleSubmit()}
-                  >
+                  <button type="submit" className="btn btn-secondary submit">
                     Submit
                   </button>
                 </div>
