@@ -7,26 +7,18 @@ import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// import { use } from "express/lib/router";
-// import { response } from "express";
-//axios instance
-// faCheckCircle
-
 const ActivityForm = (props) => {
   const [activityName, setActivityName] = useState("");
   const [activityDate, setActivityDate] = useState("");
   const [activityDuration, setActivityDuration] = useState("");
   const [activityDescription, setActivityDescription] = useState("");
-  // const [activityType, setActivityType] = useState("");
   const [isDateValid, setIsDateValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isTypeValid, setIsTypeValid] = useState(false);
   const [isDurationValid, setIsDurationValid] = useState(false);
   const [isDescriptionValid, setIsDescriptionValid] = useState(false);
-  const [isSubmitValid, setIsSubmitValid] = useState(false);
   const [posts, setPost] = useState(null);
   const [error, setError] = useState(null);
-  // const [errorMessage, setErrorMessage] = useState("");
   const [errorActivityName, setErrorMessageActivityName] = useState("");
   const [errorActivityDate, setErrorMessageActivityDate] = useState("");
   const [errorActivityType, setErrorMessageActivityType] = useState("");
@@ -138,7 +130,6 @@ const ActivityForm = (props) => {
           navigate({
             pathname: "/History",
           });
-          // setPost(response.data);
           setPost(response.data).catch((error) => {
             setError(error);
           });
@@ -168,9 +159,6 @@ const ActivityForm = (props) => {
   return (
     <section className="form-part">
       <div className="container-fluid">
-        {/* <div className="your-exercise">
-          <h2>Your Exercise Journal</h2>
-        </div> */}
         <div className="row">
           <div className="col-8">
             <h5>Activity Name</h5>
@@ -299,7 +287,6 @@ const ActivityForm = (props) => {
             className="btn btn-secondary submit"
             onClick={() => handleSubmit()}
           >
-            {/* isSubmitValid={isSubmitValid} เป็น disabled={isSubmitValid} */}
             Add activity
           </button>
           <ToastContainer

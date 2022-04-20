@@ -91,7 +91,6 @@ const ActivityHistory = () => {
               </div>
             );
           })}
-          ,
         </div>
       </div>
     </section>
