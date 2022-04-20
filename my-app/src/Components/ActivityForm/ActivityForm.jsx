@@ -143,7 +143,7 @@ const ActivityForm = (props) => {
             setError(error);
           });
         });
-      }, 4000);
+      }, 3000);
     } else {
       toast.error("Invalid Value.Activity can't be added");
     }

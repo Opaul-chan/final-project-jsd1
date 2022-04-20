@@ -16,7 +16,7 @@ const handleDelete = (id) => {
     axios.delete(`${baseURL}/${id}`).then(() => {
       window.location.reload(false);
     });
-  }, 4000);
+  }, 3000);
 };
 
 const editFormatDate = (text) => text.slice(0, 10);

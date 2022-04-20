@@ -191,11 +191,11 @@ const UpdateActivity = (props) => {
   //   };
 
   const onSubmit = (e) => {
-    toast.success("Add Activity Success");
+    toast.success("Updated Activity Success");
+    e.preventDefault();
     setTimeout(() => {
-      e.preventDefault();
       updateRequest().then(() => navigate("/History"));
-    }, 5000);
+    }, 3000);
   };
 
   return (

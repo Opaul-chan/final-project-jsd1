@@ -49,11 +49,6 @@ h5.card-title-his {
 .your-exercise {
   padding: 32px;
 }
-@media screen and (max-width: 950px) {
-  .container-fluid-banner {
-    display: none;
-  }
-}
 
 .form-control-icon {
   height: 25px;
@@ -69,9 +64,6 @@ h5.card-title-his {
   height: 25px;
 }
 @media (max-width: 450px) {
-  .container-fluid-banner {
-    display: none;
-  }
   .form-control-icon {
     height: 15px;
     color: #e74c3c;
@@ -85,9 +77,6 @@ h5.card-title-his {
   }
 }
 @media (max-width: 800px) {
-  .container-fluid-banner {
-    display: none;
-  }
   .form-control-icon {
     height: 15px;
     color: #e74c3c;
@@ -101,9 +90,6 @@ h5.card-title-his {
   }
 }
 @media (max-width: 1000px) {
-  .container-fluid-banner {
-    display: none;
-  }
   .form-control-icon {
     height: 15px;
     color: #e74c3c;
@@ -119,9 +105,6 @@ h5.card-title-his {
   }
 }
 @media (max-width: 1200px) {
-  .container-fluid-banner {
-    display: none;
-  }
   .form-control-icon {
     height: 25px;
     color: #e74c3c;
@@ -136,9 +119,6 @@ h5.card-title-his {
   }
 }
 @media (max-width: 1300px) {
-  .your-exercise {
-    display: none;
-  }
   .form-control-icon-delete {
     height: 25px;
     color: #e74c3c;
@@ -153,9 +133,6 @@ h5.card-title-his {
   }
 }
 @media (max-width: 1500px) {
-  .your-exercise {
-    display: none;
-  }
   .form-control-icon {
     height: 25px;
     color: #e74c3c;

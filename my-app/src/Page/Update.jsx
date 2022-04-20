@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import UpdateActivity from "../Components/UpdateActivity/UpdateActivity";
 
 const Update = () => {
