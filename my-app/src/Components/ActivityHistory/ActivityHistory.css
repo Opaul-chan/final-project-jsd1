@@ -49,22 +49,25 @@ h5.card-title-his {
 .your-exercise {
   padding: 32px;
 }
-.container-fluid-banner {
-  display: none;
+@media screen and (max-width: 950px) {
+  .container-fluid-banner {
+    display: none;
+  }
 }
+
 .form-control-icon {
   height: 25px;
   color: #e74c3c;
   padding-bottom: 20px;
 }
-/* .form-control-icon-pen {
+.form-control-icon-pen {
   padding-left: 300px;
   padding-right: 10px;
   padding-bottom: 20px;
   margin-top: 15px;
   color: cornflowerblue;
   height: 25px;
-} */
+}
 @media (max-width: 450px) {
   .container-fluid-banner {
     display: none;
@@ -81,7 +84,7 @@ h5.card-title-his {
     height: 15px;
   }
 }
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
   .container-fluid-banner {
     display: none;
   }
@@ -148,8 +151,8 @@ h5.card-title-his {
     color: cornflowerblue;
     height: 25px;
   }
-} */
-/* @media (max-width: 1500px) {
+}
+@media (max-width: 1500px) {
   .your-exercise {
     display: none;
   }
@@ -165,4 +168,4 @@ h5.card-title-his {
     color: cornflowerblue;
     height: 25px;
   }
-} */
+}

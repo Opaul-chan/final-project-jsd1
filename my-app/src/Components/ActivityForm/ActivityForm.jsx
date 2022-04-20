@@ -129,7 +129,7 @@ const ActivityForm = (props) => {
         activityType: props.activityType,
         activityDescription: activityDescription,
       };
-      toast.success("Deleted Activity Success");
+      toast.success("Add Activity Success");
       setTimeout(() => {
         const client = axios.create({
           baseURL: "http://localhost:4000",
@@ -168,9 +168,9 @@ const ActivityForm = (props) => {
   return (
     <section className="form-part">
       <div className="container-fluid">
-        <div className="your-exercise">
+        {/* <div className="your-exercise">
           <h2>Your Exercise Journal</h2>
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-8">
             <h5>Activity Name</h5>

@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./Page/Home";
 import History from "./Page/History";
 import Navbar from "./Components/Navbar/Navbar";
-// import Update from "./Page/Update";
+import Update from "./Page/Update";
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/History" element={<History />} />
-            {/* <Route path="/Update/:id" element={<Update />} /> */}
+            <Route path="/Update/:id" element={<Update />} />
           </Routes>
         </div>
       </div>

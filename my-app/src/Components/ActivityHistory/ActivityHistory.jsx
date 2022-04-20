@@ -7,7 +7,7 @@ import { faTrashCan, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://localhost:4000/activities";
 const handleDelete = (id) => {
@@ -20,10 +20,14 @@ const handleDelete = (id) => {
 };
 
 const editFormatDate = (text) => text.slice(0, 10);
-const handleEdit = (_id) => {
-  Navigate(`/update/${_id}`);
-};
+
 const ActivityHistory = () => {
+  const navigate = useNavigate();
+  const handleEdit = (_id) => {
+    navigate(`/Update/${_id}`);
+    console.log(_id);
+  };
+
   const [posts, setPost] = useState(null);
   useEffect(() => {
     axios.get(baseURL).then((response) => {
