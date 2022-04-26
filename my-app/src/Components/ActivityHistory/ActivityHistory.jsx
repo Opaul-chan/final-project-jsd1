@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-const baseURL = "http://localhost:4000/activities";
+const baseURL = "https://final-project-backend-eight.vercel.app/activities";
 const handleDelete = (id) => {
   toast.success("Deleted Activity Success");
   setTimeout(() => {

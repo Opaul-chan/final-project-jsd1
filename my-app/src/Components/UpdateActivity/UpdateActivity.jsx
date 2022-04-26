@@ -114,13 +114,16 @@ const UpdateActivity = (props) => {
   const updateRequest = async () => {
     if (canSubmit) {
       await axios
-        .put(`http://localhost:4000/activities/${params.id}`, {
-          activityDate: activityDate,
-          activityName: activityName,
-          activityDuration: activityDuration,
-          activityType: activityType,
-          activityDescription: activityDescription,
-        })
+        .put(
+          `https://final-project-backend-9u8ejtttb-opaul-chan.vercel.app/activities/${params.id}`,
+          {
+            activityDate: activityDate,
+            activityName: activityName,
+            activityDuration: activityDuration,
+            activityType: activityType,
+            activityDescription: activityDescription,
+          }
+        )
         .then((res) => res.data);
     } else {
       toast.error("Invalid Value.Activity can't be updated");
@@ -130,7 +133,9 @@ const UpdateActivity = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/activities/${params.id}`)
+      .get(
+        `https://final-project-backend-9u8ejtttb-opaul-chan.vercel.app/activities/${params.id}`
+      )
       .then((res) => {
         setActivityName(res.data.activityName);
         setActivityDate(cutDate(res.data.activityDate));

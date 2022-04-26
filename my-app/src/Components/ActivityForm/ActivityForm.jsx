@@ -124,7 +124,7 @@ const ActivityForm = (props) => {
       toast.success("Add Activity Success");
       setTimeout(() => {
         const client = axios.create({
-          baseURL: "http://localhost:4000",
+          baseURL: "https://final-project-backend-eight.vercel.app/",
         });
         client.post("/activities", activity).then((response) => {
           navigate({
