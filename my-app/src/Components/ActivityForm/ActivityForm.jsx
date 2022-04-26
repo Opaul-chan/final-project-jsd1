@@ -17,8 +17,6 @@ const ActivityForm = (props) => {
   const [isTypeValid, setIsTypeValid] = useState(false);
   const [isDurationValid, setIsDurationValid] = useState(false);
   const [isDescriptionValid, setIsDescriptionValid] = useState(false);
-  const [posts, setPost] = useState(null);
-  const [error, setError] = useState(null);
   const [errorActivityName, setErrorMessageActivityName] = useState("");
   const [errorActivityDate, setErrorMessageActivityDate] = useState("");
   const [errorActivityType, setErrorMessageActivityType] = useState("");
@@ -129,9 +127,8 @@ const ActivityForm = (props) => {
         client.post("/activities", activity).then((response) => {
           navigate({
             pathname: "/History",
-          });
-          setPost(response.data).catch((error) => {
-            setError(error);
+          }).catch((error) => {
+            console.log(error.response.data);
           });
         });
       }, 3000);
